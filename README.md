@@ -11,7 +11,7 @@ An object-oriented PHP wrapper for the [BrightID](https://brightid.org) API.
 
 ## Requirements
 
-- PHP >= 8.0
+- PHP >= 8.1
 - A [PSR-17 implementation](https://packagist.org/providers/psr/http-factory-implementation)
 - A [PSR-18 implementation](https://packagist.org/providers/psr/http-client-implementation)
 
