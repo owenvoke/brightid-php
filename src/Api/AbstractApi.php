@@ -31,7 +31,7 @@ abstract class AbstractApi
         return $this->client->getApiVersion();
     }
 
-    public function configure()
+    public function configure(): static
     {
         return $this;
     }
@@ -77,7 +77,8 @@ abstract class AbstractApi
             unset($parameters['ref']);
         }
 
-        return $this->client->getHttpClient()->head($path.'?'.http_build_query($parameters, '', '&', PHP_QUERY_RFC3986), $requestHeaders);
+        return $this->client->getHttpClient()->head($path.'?'.http_build_query($parameters, '', '&', PHP_QUERY_RFC3986),
+            $requestHeaders);
     }
 
     /**
@@ -181,6 +182,6 @@ abstract class AbstractApi
      */
     protected function createJsonBody(array $parameters): ?string
     {
-        return (count($parameters) === 0) ? null : json_encode($parameters, empty($parameters) ? JSON_FORCE_OBJECT : 0);
+        return (count($parameters) === 0) ? null : json_encode($parameters, JSON_FORCE_OBJECT);
     }
 }
