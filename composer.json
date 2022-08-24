@@ -1,0 +1,52 @@
+{
+    "name": "owenvoke/brightid",
+    "type": "library",
+    "description": "An object-oriented PHP wrapper for the BrightID API",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "php-http/client-common": "^2.4",
+        "php-http/discovery": "^1.14",
+        "php-http/httplug": "^2.2",
+        "php-http/multipart-stream-builder": "^1.1",
+        "psr/http-client-implementation": "^1.0",
+        "psr/http-factory-implementation": "^1.0",
+        "psr/http-message": "^1.0"
+    },
+    "require-dev": {
+        "guzzlehttp/guzzle": "^7.4",
+        "guzzlehttp/psr7": "^2.1",
+        "http-interop/http-factory-guzzle": "^1.2",
+        "laravel/pint": "^1.1",
+        "pestphp/pest": "^1.21.3",
+        "php-http/mock-client": "^1.5",
+        "phpstan/phpstan": "^1.8.1",
+        "symfony/var-dumper": "^v6.1.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "OwenVoke\\BrightID\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OwenVoke\\BrightID\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test:types": "phpstan analyse --ansi --memory-limit=-1",
+        "test:unit": "pest --colors=always",
+        "test": [
+            "@test:types",
+            "@test:unit"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
