@@ -11,6 +11,7 @@ use Http\Client\Common\Plugin\RedirectPlugin;
 use Http\Discovery\Psr17FactoryDiscovery;
 use OwenVoke\BrightID\Api\AbstractApi;
 use OwenVoke\BrightID\Api\App;
+use OwenVoke\BrightID\Api\Group;
 use OwenVoke\BrightID\Api\Node;
 use OwenVoke\BrightID\Api\User;
 use OwenVoke\BrightID\Exception\BadMethodCallException;
@@ -22,6 +23,8 @@ use Psr\Http\Client\ClientInterface;
 /**
  * @method App app()
  * @method App apps()
+ * @method Group group()
+ * @method Group groups()
  * @method Node node()
  * @method User user()
  * @method User users()
@@ -62,6 +65,7 @@ final class Client
     {
         return match ($name) {
             'app', 'apps' => new App($this),
+            'group', 'groups' => new Group($this),
             'node' => new Node($this),
             'user', 'users' => new User($this),
             default => throw new InvalidArgumentException(sprintf('Undefined api instance called: "%s"', $name)),
