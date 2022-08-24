@@ -54,5 +54,6 @@ it('should get state of the current node', function () {
         ->with('/state')
         ->willReturn($expectedArray);
 
-    expect($api->state('abc'))->toBe($expectedArray);
+    /** @var Node $api */
+    expect($api->state())->toBe($expectedArray);
 });
